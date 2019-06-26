@@ -1,3 +1,5 @@
 .idea
 *.iml
 .DS_Store
+cid
+__pycache__
