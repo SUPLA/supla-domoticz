@@ -18,6 +18,9 @@
         </ul>
     </description>
     <params>
+        <param field="Mode2" label="Device GUID" required="true"/>
+        <param field="Mode1" label="oAuth Token" required="true"/>
+        <param field="Mode1" label="Refresh Interval (seconds)" required="true" defualt="30"/>
     </params>
 </plugin>
 """
