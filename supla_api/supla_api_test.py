@@ -1,10 +1,3 @@
-import sys
-import os
-
-supla_api_module = os.path.dirname(os.path.abspath('../../supla_api/supla_api.py'))
-print("Importing ", supla_api_module)
-sys.path.append(supla_api_module)
-
 from supla_api import *
 
 
