@@ -1,6 +1,7 @@
 import sys
+import os
 
-sys.path.append('../../supla_api')
+sys.path.append(os.path.dirname(os.path.abspath('../../supla_api/supla_api.py')))
 
 from supla_api import *
 
