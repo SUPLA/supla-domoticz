@@ -35,30 +35,30 @@ class BasePlugin:
         return
 
     def onStart(self):
-        Domoticz.Log("onStart called")
+        Domoticz.Debug("onStart called")
 
     def onStop(self):
-        Domoticz.Log("onStop called")
+        Domoticz.Debug("onStop called")
 
     def onConnect(self, Connection, Status, Description):
-        Domoticz.Log("onConnect called")
+        Domoticz.Debug("onConnect called")
 
     def onMessage(self, Connection, Data):
-        Domoticz.Log("onMessage called")
+        Domoticz.Debug("onMessage called")
 
     def onCommand(self, Unit, Command, Level, Hue):
-        Domoticz.Log(
+        Domoticz.Debug(
             "onCommand called for Unit " + str(Unit) + ": Parameter '" + str(Command) + "', Level: " + str(Level))
 
     def onNotification(self, Name, Subject, Text, Status, Priority, Sound, ImageFile):
-        Domoticz.Log("Notification: " + Name + "," + Subject + "," + Text + "," + Status + "," + str(
+        Domoticz.Debug("Notification: " + Name + "," + Subject + "," + Text + "," + Status + "," + str(
             Priority) + "," + Sound + "," + ImageFile)
 
     def onDisconnect(self, Connection):
-        Domoticz.Log("onDisconnect called")
+        Domoticz.Debug("onDisconnect called")
 
     def onHeartbeat(self):
-        Domoticz.Log("onHeartbeat called")
+        Domoticz.Debug("onHeartbeat called")
 
 
 global _plugin
