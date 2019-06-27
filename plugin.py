@@ -1,19 +1,21 @@
 """
-<plugin key="BasePlug" name="Basic Python Plugin Example" author="gizmocuz" version="1.0.0" wikilink="http://www.domoticz.com/wiki/plugins/plugin.html" externallink="https://www.google.com/">
+<plugin key="supla" name="Supla" author="Supla Team" version="0.1.0" externallink="https://supla.org/">
     <description>
-        <h2>Plugin Title</h2><br/>
-        Overview...
-        <h3>Features</h3>
-        <ul style="list-style-type:square">
-            <li>Feature one...</li>
-            <li>Feature two...</li>
-        </ul>
+        <h2>Supla Plugin</h2>
+        <br/>
         <h3>Devices</h3>
         <ul style="list-style-type:square">
-            <li>Device Type - What it does...</li>
+            <liv>Switches &amp; lights</liv>
+            <liv>RGB and dimmer controllers</liv>
+            <liv>Temperature &amp; humidity devices</liv>
+            <liv>Gates (and sensors)</liv>
+            <liv>Roller shutter controllers</liv>
         </ul>
         <h3>Configuration</h3>
-        Configuration options...
+        <ul style="list-style-type:square">
+            <li>oAuth Token</li>
+            <li>Device GUID</li>
+        </ul>
     </description>
     <params>
     </params>
