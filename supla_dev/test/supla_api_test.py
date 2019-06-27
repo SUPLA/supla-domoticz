@@ -1,3 +1,7 @@
+import sys
+
+sys.path.append('../../supla_api')
+
 from supla_api import *
 
 
