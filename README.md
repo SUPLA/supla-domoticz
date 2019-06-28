@@ -32,7 +32,6 @@ docker build -f supla_dev/Dockerfile -t supla-domoticz-test .
 ```sh
 docker run --name=supla-domoticz-test \
         --privileged \
-        --cidfile="cid" \
         -d \
         -p 7070:8080 \
         -p 7071:9090 \
