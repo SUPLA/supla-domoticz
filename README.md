@@ -1,7 +1,7 @@
 ***
 
 <div align="center">
-    <b><em>Supla + Domoticz = ❤️</em></b><br>
+    <b><em>Supla ❤️ Domoticz</em></b><br>
 </div>
 
 <div align="center">
@@ -20,10 +20,9 @@ opportunity to build elements based on RaspberryPI, Arduino or ESP8266 platforms
 or WiFi. Through SUPLA you can, among others, control the lighting, switch on and off household appliances and media, 
 open and shut gates and doors, or control room temperature. All the above can be done with just touch of a finger. SUPLA 
 is available from any place on Earth if you just have a smartphone or tables available as well as Internet access. SUPLA 
-is developed based on an Open Software and Open Hardware . This way, you can also develop this project!  -  
-<a href="https://supla.org">Supla</a>
+is developed based on an Open Software and Open Hardware . This way, you can also develop this project!  - <a href="https://supla.org">Supla</a>
 
-#Development
+# Development
 ## Docker
 ### Create new image
 ```sh
@@ -41,7 +40,7 @@ docker run --name=supla-domoticz-test \
 ```
 To validate if Domoticz is running visit http://localhost:7070
 
-To validate id jSuplaServerMock is running do this:
+To validate if `jSuplaServerMock` is running do this:
 ```sh
 curl -X GET "http://localhost:7071/api/v2.3.0/server-info" -H  "accept: application/json"
 ```
