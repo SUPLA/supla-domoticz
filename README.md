@@ -22,6 +22,13 @@ open and shut gates and doors, or control room temperature. All the above can be
 is available from any place on Earth if you just have a smartphone or tables available as well as Internet access. SUPLA 
 is developed based on an Open Software and Open Hardware . This way, you can also develop this project!  - <a href="https://supla.org">Supla</a>
 
+## SUPLA-CLOUD
+
+SUPLA-CLOUD is a central point joining the executive devices for indirect and direct operation of your household or office appliances and other elements with client applications which you can install on your tablets and smartphones. This software allows to operate, from one spot, the whole system infrastructure using any modern Internet browser. Server access is free of charge. You can also set up your own independent server working within the Internet or home network using system sources which you can download from GITHUB.
+
+<a href="https://cloud.supla.org/account/create">Create an account</a>
+<a href="https://github.com/SUPLA">Get from GITHUB</a>
+
 # Development
 ## Docker
 ### Create new image
