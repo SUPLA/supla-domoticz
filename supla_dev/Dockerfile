@@ -13,5 +13,10 @@ WORKDIR /src/domoticz/plugins/
 COPY plugin.py supla-domoticz/
 COPY supla_api supla-domoticz/supla_api
 
+# Install requirements for plugin
+WORKDIR /src/domoticz/plugins/supla-domoticz/
+COPY requirements.txt .
+RUN pip3 install --requirement requirements.txt --target .
+
 WORKDIR /
 CMD [ "/docker-start-domoticz.sh" ]
