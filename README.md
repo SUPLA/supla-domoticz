@@ -29,6 +29,39 @@ SUPLA-CLOUD is a central point joining the executive devices for indirect and di
 <a href="https://cloud.supla.org/account/create">Create an account</a>
 <a href="https://github.com/SUPLA">Get from GITHUB</a>
 
+# How to install
+
+Just go to folder with domoticz plugins, run those commands:
+
+```bash
+cd domoticz/plugins
+git clone https://github.com/SUPLA/supla-domoticz.git
+cd supla-domoticz
+pip3 install --requirement requirements.txt --target .
+```
+
+... and restart device. After this you should have new hardware type called _Supla_.
+
+Read more: https://www.domoticz.com/wiki/Using_Python_plugins
+
+## Submitting bugs
+
+Before you submit bug please attach logs. To do this edit `domoticz/plugins/supla-domoticz/plugin.py`.
+
+Change this line:
+```python
+def debug(msg):
+    Domoticz.Debug(msg)
+``` 
+
+to:
+```python
+def debug(msg):
+    info(msg)
+``` 
+
+Restart RPi, repeat what was not working and save logs (`Setup` > `Log`).
+
 # Development
 ## Docker
 ### Create new image
