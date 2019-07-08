@@ -19,13 +19,13 @@ class ApiClient:
         self.error = error
 
     def find_all_devices(self):
-        return self.get("/iodevices")
+        return self.get("/iodevices", includes=["channels"])
 
     def update_channel(self, channel_id, action):
         self.patch("/channels/" + channel_id, action)
 
     def find_channel(self, channel_id):
-        return self.get("/channels/" + str(channel_id))
+        return self.get("/channels/" + str(channel_id), includes=["connected", "state"])
 
     def build_url(self, url):
         return self.url + url
@@ -36,9 +36,14 @@ class ApiClient:
             self.error(msg)
             raise Exception(msg)
 
-    def get(self, url):
-        self.debug("api> get(" + self.build_url(url) + ")")
-        response = requests.get(self.build_url(url), headers=self.default_headers)
+    def get(self, url, includes=None):
+        if includes is None:
+            includes = []
+        self.debug("api> get(" + self.build_url(url) + ", includes=[" + ", ".join(includes) + "])")
+        params = dict()
+        if len(includes) > 0:
+            params["include"] = includes
+        response = requests.get(self.build_url(url), headers=self.default_headers, params=params)
         self.check_response(response)
         return response.json()
 

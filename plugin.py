@@ -1,5 +1,5 @@
 """
-<plugin key="supla" name="Supla" author="Supla Team" version="0.1.0" externallink="https://supla.org/">
+<plugin key="supla" name="Supla" author="Supla Team" version="0.1.1" externallink="https://supla.org/">
     <description>
         <h2>Supla Plugin</h2>
         <p>
@@ -41,9 +41,11 @@ import Domoticz
 from supla_api import *
 
 
-def build_domoticz_device(channel):
+def build_domoticz_device(channel, device):
     channel_type = channel["function"]["name"]
     channel_name = channel["caption"]
+    if not channel_name:
+        channel_name = device["name"] + "#" + str(channel["id"])
     unit = len(Devices) + 1
     device_id = str(channel["id"])
 
@@ -53,7 +55,6 @@ def build_domoticz_device(channel):
                         TypeName="Switch",
                         Unit=unit,
                         DeviceID=device_id).Create()
-        update_device(channel, unit)
 
 
 def update_device(channel, unit):
@@ -95,7 +96,8 @@ class BasePlugin:
         all_devices = self.api_client.find_all_devices()
         for device in all_devices:
             for channel in device["channels"]:
-                build_domoticz_device(channel)
+                build_domoticz_device(channel, device)
+        self.onHeartbeat(force=True)
 
     def onStop(self):
         """
@@ -182,7 +184,7 @@ class BasePlugin:
         """
         debug("onDisconnect called")
 
-    def onHeartbeat(self):
+    def onHeartbeat(self, force=False):
         """
         Called every 'heartbeat' seconds (default 10) regardless of connection status.
 
@@ -199,7 +201,7 @@ class BasePlugin:
         """
         debug("onHeartbeat called")
         now = datetime.datetime.now()
-        if (now - self.last_refresh).seconds > self.refresh_time:
+        if force or (now - self.last_refresh).seconds > self.refresh_time:
             info("Updating devices...")
             self.last_refresh = now
             for unit in list(Devices.keys()):
